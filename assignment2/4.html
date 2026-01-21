@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day - 2</title>
+    <style>
+      body {
+          padding: 25px;
+          display: flex;
+          flex-direction: column; /* Stacks items vertically */
+          align-items: center;    /* Centers horizontally */
+          background-color: #ADD8E6;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h2>Random Background Color</h2>
+    <button type="button" id="btn">Click</button>
+    
+    <script>
+        const targetbtn = document.getElementById("btn");
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        
+        targetbtn.addEventListener("click", ()=>{
+          let col = getRandomColor();
+          document.body.style.backgroundColor = col;
+        });
+        
+    </script>
+  </body>
+</html>

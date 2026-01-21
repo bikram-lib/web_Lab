@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day - 1</title>
+    <style>
+      .title {
+      	color: #5C6AC4;
+      }
+      body{
+        padding: 25px;
+        display: flex;
+        flex-direction: column; /* Stacks items vertically */
+        align-items: center;    /* Centers horizontally */
+        background-color: #ADD8E6;
+      }
+      .ques {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+      }
+    </style>
+    
+  </head>
+  <body>
+      <div class="ques">
+        q4-->
+      </div>
+      <div id="q4">
+        <button type="button" onclick="changeBgColor()">click to change Body background-color</button>
+      </div>
+
+      <script>
+        function changeBgColor(){
+          const bd = document.querySelector("body");
+          if(bd.style.backgroundColor === "red") bd.style.backgroundColor = "#ADD8E6";
+          else bd.style.backgroundColor = "red";
+        }
+      </script>
+  </body>
+</html>

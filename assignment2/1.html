@@ -1,1 +1,42 @@
-hello world
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day - 2</title>
+    <style>
+      body {
+          padding: 25px;
+          display: flex;
+          flex-direction: column; /* Stacks items vertically */
+          align-items: center;    /* Centers horizontally */
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h2>Even or Odd Checker</h2>
+    <input type="number" id="num1" placeholder="Enter a NUmber"/>
+    <button type="button" onclick="checkOddEven()">Check</button>
+    <p>result: <span id="res"></span> </p>
+    
+    
+    <script>
+      function checkOddEven(){
+        let n1 = document.getElementById("num1").value;
+        const target = document.getElementById("res");
+        if(n1 == ''){
+          target.textContent = 'Please enter a number.';
+          target.style.color = 'red';
+          return;
+        }
+        
+        n1 = Number(n1);
+        let ans;
+        if(n1&1) ans = 'Odd';
+        else ans = 'Even';
+        
+        target.textContent = ans;
+        target.style.color = 'green';
+      }    
+    </script>
+  </body>
+</html>

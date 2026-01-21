@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day - 2</title>
+    <style>
+      body {
+          padding: 25px;
+          display: flex;
+          flex-direction: column; /* Stacks items vertically */
+          align-items: center;    /* Centers horizontally */
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h2>Button Click Counter</h2>
+    <button type="button" id="btn">Click</button>
+    <p>
+      Count: <span id="res">0</span>
+    </p>
+    
+    
+    <script>
+        let count = 0;
+        const targetbtn = document.getElementById("btn");
+        const targetRes = document.getElementById("res");
+        
+        targetbtn.addEventListener("click", ()=>{
+          count++;
+          targetRes.textContent = count;
+        });
+        
+    </script>
+  </body>
+</html>

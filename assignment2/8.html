@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day - 2</title>
+    <style>
+      body {
+          padding: 25px;
+          display: flex;
+          flex-direction: column; /* Stacks items vertically */
+          align-items: center;    /* Centers horizontally */
+          background-color: #ADD8E6;
+      }
+      input{
+        padding: 8px;
+        margin: 5px;
+        width: 150px;
+      }
+      button {
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  
+<body>
+
+  <h2>Textbox Validation</h2>
+  <input type="text" id="name" placeholder="Enter your name">
+  <br><br>
+  <button onclick="validate()">Submit</button>
+
+  <div id="msg"></div>
+
+  <script>
+    function validate() {
+      let value = document.getElementById("name").value;
+      if (value.trim() === "") {
+        document.getElementById("msg").innerHTML = "Please fill the input field!";
+      } else {
+        document.getElementById("msg").innerHTML = "input submitted: " + value;
+      }
+    }
+  </script>
+
+
+</body>
+</html>

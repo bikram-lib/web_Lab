@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day - 2</title>
+    <style>
+      body {
+          padding: 25px;
+          display: flex;
+          flex-direction: column; /* Stacks items vertically */
+          align-items: center;    /* Centers horizontally */
+          background-color: #ADD8E6;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h2>Show Current Date, Time and Day</h2>
+    <button type="button" id="btn">Click</button>
+    <div id="output"> </div>
+    
+    <script>
+        const targetbtn = document.getElementById("btn");
+        function showDateTime(){
+            let now = new Date();
+            let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            
+            let day = days[now.getDay()];
+            
+            let time = now.toLocaleTimeString();
+            let date = now.toLocaleDateString();
+            
+            document.getElementById("output").innerHTML = `
+            <div style = "margin-top: 10px">day: ${day} </div>
+            <div>date: ${date} </div>
+            <div>time: ${time} </div>
+            `;
+            
+        }
+
+        
+        targetbtn.addEventListener("click", ()=>{
+          showDateTime();
+        });
+        
+    </script>
+  </body>
+</html>

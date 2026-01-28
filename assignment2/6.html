@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day - 2</title>
+    <style>
+      body {
+          padding: 25px;
+          display: flex;
+          flex-direction: column; /* Stacks items vertically */
+          align-items: center;    /* Centers horizontally */
+          background-color: #ADD8E6;
+      }
+      input{
+        padding: 8px;
+        margin: 5px;
+        width: 150px;
+      }
+      button {
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h2>Marks Result Program</h2>
+      
+    <input type="number" id="m1" placeholder="Subject 1"/>
+    <input type="number" id="m2" placeholder="Subject 2"/>
+    <input type="number" id="m3" placeholder="Subject 3"/>
+    
+    
+    <button onclick="calculate()">Submit</button>
+    <div id="output"> </div>
+    
+    <script>
+        function calculate(){
+            let s1 = Number(document.getElementById("m1").value);
+            let s2 = Number(document.getElementById("m2").value);
+            let s3 = Number(document.getElementById("m3").value);
+            
+            let total = s1+s2+s3;
+            let avg = total / 3; 
+            let result = (avg >= 40) ? "Pass" : "Fail";
+            
+            document.getElementById("output").innerHTML = `
+            <div style = "margin-top: 10px"> Total Marks: ${total} </div>
+            <div> Average Marks: ${avg} </div>
+            <div> Result: ${result}</div>
+            `;
+            
+        }
+
+        
+    </script>
+  </body>
+</html>

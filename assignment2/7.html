@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day - 2</title>
+    <style>
+      body {
+          padding: 25px;
+          display: flex;
+          flex-direction: column; /* Stacks items vertically */
+          align-items: center;    /* Centers horizontally */
+          background-color: #ADD8E6;
+      }
+      input{
+        padding: 8px;
+        margin: 5px;
+        width: 150px;
+      }
+      button {
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  
+<body>
+
+  <h2>Show / Hide Paragraph</h2>
+  <button onclick="togglePara()">Show / Hide</button>
+
+  <p id="para">This is a paragraph that will be shown or hidden when you click the button.</p>
+
+  <script>
+    function togglePara() {
+      let p = document.getElementById("para");
+
+      if (p.style.display === "none") {
+        p.style.display = "block";
+      } else {
+        p.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
+</html>

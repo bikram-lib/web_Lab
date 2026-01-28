@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day - 2</title>
+    <style>
+      body {
+          padding: 25px;
+          display: flex;
+          flex-direction: column; /* Stacks items vertically */
+          align-items: center;    /* Centers horizontally */
+          background-color: #ADD8E6;
+      }
+      input{
+        padding: 8px;
+        margin: 5px;
+        width: 150px;
+      }
+      button {
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  
+  <h2>Find Max and Min</h2>
+
+  <input type="number" id="n1" placeholder="Number 1">
+  <input type="number" id="n2" placeholder="Number 2">
+  <input type="number" id="n3" placeholder="Number 3">
+  <br>
+
+  <button onclick="findMaxMin()">Find</button>
+
+  <div id="result"></div>
+
+  <script>
+    function findMaxMin() {
+      let a = Number(document.getElementById("n1").value);
+      let b = Number(document.getElementById("n2").value);
+      let c = Number(document.getElementById("n3").value);
+
+      let max = Math.max(a, b, c);
+      let min = Math.min(a, b, c);
+
+      document.getElementById("result").innerHTML =
+        "Maximum: " + max + "<br>" +
+        "Minimum: " + min;
+    }
+  </script>
+
+</body>
+</html>

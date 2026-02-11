@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day - 2</title>
+    <style>
+      body {
+          padding: 25px;
+          display: flex;
+          flex-direction: column; /* Stacks items vertically */
+          align-items: center;    /* Centers horizontally */
+          background-color: #ADD8E6;
+      }
+      button {
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  
+  <h2>togle text and color</h2>
+
+  <p id="myParagraph" style="color:blue">Hello! This is the original text.</p>
+
+  <button onclick="togle()">togle</button>
+
+  <script>
+    let istogle = false;
+    function togle() {
+      let para = document.getElementById("myParagraph");
+      
+      if(istogle==false){
+        para.innerHTML = "The text has been changed!";
+        para.style.color = "red";
+        istogle = true;
+      }
+      else{
+        para.innerHTML = "Hello! This is the original text.";
+        para.style.color = "blue";
+        istogle = false;
+      }
+      
+      
+      
+
+    }
+  </script>
+
+</body>
+</html>

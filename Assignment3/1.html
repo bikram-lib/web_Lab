@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>day - 3</title>
+    <style>
+      body {
+          padding: 25px;
+          display: flex;
+          flex-direction: column; /* Stacks items vertically */
+          align-items: center;    /* Centers horizontally */
+          background-color: #ADD8E6;
+      }
+      button {
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  
+  <h2>Number to Words (0-999)</h2>
+
+    <input type="text" id="numberInput" placeholder="Enter number">
+    <button onclick="convertNumber()">Convert</button>
+
+    <p id="result"></p>
+
+    <script>
+        function convertNumber() {
+            let input = document.getElementById("numberInput").value.trim();
+            let result = document.getElementById("result");
+
+            if (!/^\d+$/.test(input)) {
+                result.innerHTML = "Invalid input! Only numbers are allowed.";
+                return;
+            }
+
+            let number = parseInt(input);
+
+            // Validation: range 0-999
+            if (number < 0 || number > 999) {
+                result.innerHTML = "Invalid input! Enter number between 0 and 999.";
+                return;
+            }
+
+            result.innerHTML = numberToWords(number);
+        }
+
+        function numberToWords(num) {
+            const ones = ["", "One", "Two", "Three", "Four", "Five", "Six",
+                          "Seven", "Eight", "Nine"];
+            const teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen",
+                           "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+            const tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty",
+                          "Sixty", "Seventy", "Eighty", "Ninety"];
+
+            if (num === 0) return "Zero";
+
+            let word = "";
+
+            // Hundreds place
+            if (Math.floor(num / 100) > 0) {
+                word += ones[Math.floor(num / 100)] + " Hundred ";
+                num = num % 100;
+            }
+
+            // Tens and Ones place
+            if (num >= 10 && num < 20) {
+                word += teens[num - 10];
+            } else {
+                word += tens[Math.floor(num / 10)] + " ";
+                word += ones[num % 10];
+            }
+
+            return word.trim();
+        }
+    </script>
+
+</body>
+</html>

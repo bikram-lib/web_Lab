@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List Manager</title>
+    <style>
+        body{
+            font-family: Arial;
+            background: lightblue;
+            text-align: center;
+        }
+        ul{
+            list-style-type: none;
+            padding: 0;
+        }
+        li{
+            margin: 8px;
+            padding: 8px;
+            background: white;
+            border-radius: 5px;
+        }
+        button{
+            margin-left: 10px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Dynamic Student List Manager</h2>
+
+<input type="text" id="studentName" placeholder="Enter Student Name">
+<button onclick="addStudent()">Add Student</button>
+
+<h3>Total Students: <span id="count">0</span></h3>
+
+<ul id="studentList"></ul>
+
+<script>
+let total = 0;
+
+function addStudent() {
+
+    let name = document.getElementById("studentName").value;
+
+    if(name === ""){
+        alert("Enter a name");
+        return;
+    }
+
+    // create li
+    let li = document.createElement("li");
+
+    // text node
+    li.textContent = name;
+
+    // remove button
+    let btn = document.createElement("button");
+    btn.textContent = "Remove";
+
+    btn.onclick = function(){
+        li.remove();
+        total--;
+        document.getElementById("count").textContent = total;
+    };
+
+    li.appendChild(btn);
+
+    document.getElementById("studentList").appendChild(li);
+
+    total++;
+    document.getElementById("count").textContent = total;
+
+    document.getElementById("studentName").value = "";
+}
+</script>
+
+</body>
+</html>

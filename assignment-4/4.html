@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Search Filter</title>
+    <style>
+        body{
+            font-family: Arial;
+            text-align:center;
+            margin-top:40px;
+        }
+        input{
+            padding:8px;
+            width:200px;
+        }
+        li{
+            list-style:none;
+            padding:5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Live Search Filter</h2>
+
+<input type="text" id="searchBox" placeholder="Search items..." onkeyup="searchItem()">
+
+<ul id="itemList">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Mango</li>
+    <li>Orange</li>
+    <li>Grapes</li>
+    <li>Pineapple</li>
+    <li>Strawberry</li>
+    <li>Watermelon</li>
+    <li>Kiwi</li>
+    <li>Cherry</li>
+</ul>
+
+<script>
+
+function searchItem() {
+
+    let input = document.getElementById("searchBox").value.toLowerCase();
+    let items = document.querySelectorAll("#itemList li");
+
+    // Convert NodeList to Array and filter
+    let filteredItems = Array.from(items).filter(function(item){
+        return item.innerText.toLowerCase().includes(input);
+    });
+
+    // Hide all first
+    items.forEach(function(item){
+        item.style.display = "none";
+    });
+
+    // Show only filtered items
+    filteredItems.forEach(function(item){
+        item.style.display = "block";
+    });
+
+}
+
+</script>
+
+</body>
+</html>

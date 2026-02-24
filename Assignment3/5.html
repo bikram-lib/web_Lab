@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <script>
+        function validateForm() {
+
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let address = document.getElementById("address").value;
+            let password = document.getElementById("password").value;
+            let email = document.getElementById("email").value;
+            let mobile = document.getElementById("mobile").value;
+
+            // First Name Validation
+            let namePattern = /^[A-Za-z]{6,}$/;
+            if (!namePattern.test(fname)) {
+                alert("First Name must contain only alphabets and min 6 characters");
+                return false;
+            }
+
+            // Last Name & Address
+            if (lname == "" || address == "") {
+                alert("Last Name and Address cannot be empty");
+                return false;
+            }
+
+            // Password
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters");
+                return false;
+            }
+
+            // Email
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!emailPattern.test(email)) {
+                alert("Enter valid Email ID (name@domain.com)");
+                return false;
+            }
+
+            // Mobile
+            let mobilePattern = /^[0-9]{10}$/;
+            if (!mobilePattern.test(mobile)) {
+                alert("Mobile number must be exactly 10 digits");
+                return false;
+            }
+
+            alert("Registration Successful!");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+<h2>Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+    First Name: <input type="text" id="fname"><br><br>
+    Last Name: <input type="text" id="lname"><br><br>
+    Address: <input type="text" id="address"><br><br>
+    Password: <input type="password" id="password"><br><br>
+    Email: <input type="text" id="email"><br><br>
+    Mobile: <input type="text" id="mobile"><br><br>
+
+    <input type="submit" value="Register">
+</form>
+
+</body>
+</html>

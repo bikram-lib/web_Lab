@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Demo Page</title>
+
+<style>
+
+/* a) Different Font Styles */
+h1 {
+    font-family: Arial, sans-serif;
+    color: darkblue;
+}
+
+p {
+    font-family: "Courier New", monospace;
+    font-style: italic;
+}
+
+/* b) Background image control */
+body {
+    background-image: url("https://picsum.photos/800/600");
+    background-repeat: no-repeat;   /* try repeat also */
+    background-size: cover;
+}
+
+/* c) Link Styles */
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    color: red;
+    font-size: 20px;
+}
+
+a:active {
+    color: green;
+}
+
+/* d) Customized Cursor */
+a {
+    cursor: pointer;
+}
+
+.custom-link {
+    cursor: crosshair;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Welcome to My CSS Page</h1>
+
+<p>This paragraph uses a different font style.</p>
+
+<h3>Click Links Below</h3>
+
+<a href="https://google.com">Normal Link</a><br><br>
+
+<a href="#" class="custom-link">Custom Cursor Link</a>
+
+</body>
+</html>

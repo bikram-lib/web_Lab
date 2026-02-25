@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Session</title>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 100px;
+      font-family: Arial;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>User Login</h2>
+
+  <div id="loginBox">
+    <input type="text" id="username" placeholder="Enter Username">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div id="welcomeBox" style="display:none;">
+    <h3 id="welcomeText"></h3>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+<script>
+
+  // Check if user already logged in (after refresh)
+  window.onload = function() {
+    let savedUser = localStorage.getItem("username");
+
+    if(savedUser) {
+      showWelcome(savedUser);
+    }
+  };
+
+  function login() {
+    let username = document.getElementById("username").value.trim();
+
+    if (username === "") {
+      alert("Please enter username");
+      return;
+    }
+
+    // Save to localStorage
+    localStorage.setItem("username", username);
+
+    showWelcome(username);
+  }
+
+  function showWelcome(name) {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("welcomeBox").style.display = "block";
+    document.getElementById("welcomeText").textContent = 
+      "Welcome back, " + name + "!";
+  }
+
+  function logout() {
+    // Remove from localStorage
+    localStorage.removeItem("username");
+
+    document.getElementById("loginBox").style.display = "block";
+    document.getElementById("welcomeBox").style.display = "none";
+    document.getElementById("username").value = "";
+  }
+
+</script>
+
+</body>
+</html>

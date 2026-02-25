@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Timer</title>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 100px;
+      font-family: Arial;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px;
+    }
+    #display {
+      font-size: 30px;
+      margin-top: 20px;
+      color: darkblue;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Countdown Timer</h2>
+
+  <input type="number" id="secondsInput" placeholder="Enter seconds">
+  <button onclick="startTimer()">Start</button>
+
+  <div id="display"></div>
+
+  <script>
+    let timer;
+
+    function startTimer() {
+      let seconds = document.getElementById("secondsInput").value;
+      let display = document.getElementById("display");
+
+      clearInterval(timer); // stop previous timer if running
+
+      timer = setInterval(function() {
+        if (seconds > 0) {
+          display.textContent = seconds;
+          seconds--;
+        } else {
+          display.textContent = "Time Over";
+          clearInterval(timer);
+        }
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>

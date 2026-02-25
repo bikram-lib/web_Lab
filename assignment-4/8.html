@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Slider</title>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 50px;
+      font-family: Arial;
+    }
+    img {
+      width: 400px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    button {
+      padding: 8px 15px;
+      margin: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Image Slider</h2>
+
+<button onclick="prevImage()">Previous</button>
+<img id="slider">
+<button onclick="nextImage()">Next</button>
+
+<script>
+
+let images = [
+  "https://picsum.photos/id/1015/600/400",
+  "https://picsum.photos/id/1025/600/400",
+  "https://picsum.photos/id/1035/600/400"
+];
+
+let index = 0;
+let slider = document.getElementById("slider");
+let timer;
+
+// Show first image
+slider.src = images[index];
+
+// 🔹 Start Auto Slide
+function startAutoSlide() {
+  timer = setInterval(showNext, 3000);
+}
+
+// 🔹 Reset Timer
+function resetTimer() {
+  clearInterval(timer);
+  startAutoSlide();
+}
+
+// 🔹 Show Next (used by auto slide)
+function showNext() {
+  index++;
+  if (index >= images.length) {
+    index = 0;
+  }
+  slider.src = images[index];
+}
+
+// 🔹 Next Button
+function nextImage() {
+  showNext();
+  resetTimer();
+}
+
+// 🔹 Previous Button
+function prevImage() {
+  index--;
+  if (index < 0) {
+    index = images.length - 1;
+  }
+  slider.src = images[index];
+  resetTimer();
+}
+
+// Start auto slide once
+startAutoSlide();
+
+</script>
+
+</body>
+</html>

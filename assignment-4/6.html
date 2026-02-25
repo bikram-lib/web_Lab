@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form Validation</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input {
+      display: block;
+      margin: 10px auto;
+      padding: 8px;
+      width: 250px;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      height: 18px;
+    }
+    button {
+      padding: 8px 15px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+  <input type="text" id="name" placeholder="Enter Name">
+  <div id="nameError" class="error"></div>
+
+  <input type="text" id="email" placeholder="Enter Email">
+  <div id="emailError" class="error"></div>
+
+  <input type="password" id="password" placeholder="Enter Password">
+  <div id="passwordError" class="error"></div>
+
+  <input type="password" id="confirmPassword" placeholder="Confirm Password">
+  <div id="confirmError" class="error"></div>
+
+  <button type="submit">Register</button>
+
+</form>
+
+<script>
+function validateForm() {
+
+  // Get values
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let password = document.getElementById("password").value;
+  let confirmPassword = document.getElementById("confirmPassword").value;
+
+  // Get error fields
+  let nameError = document.getElementById("nameError");
+  let emailError = document.getElementById("emailError");
+  let passwordError = document.getElementById("passwordError");
+  let confirmError = document.getElementById("confirmError");
+
+  // Clear previous errors
+  nameError.textContent = "";
+  emailError.textContent = "";
+  passwordError.textContent = "";
+  confirmError.textContent = "";
+
+  let isValid = true;
+
+  // 1️⃣ Name not empty
+  if (name === "") {
+    nameError.textContent = "Name cannot be empty";
+    isValid = false;
+  }
+
+  // 2️⃣ Email format check (Regex)
+  let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!email.match(emailPattern)) {
+    emailError.textContent = "Enter valid email";
+    isValid = false;
+  }
+
+  // 3️⃣ Strong password (1 uppercase + 1 number, min 6 chars)
+  let passwordPattern = /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
+  if (!password.match(passwordPattern)) {
+    passwordError.textContent = "Password must contain 1 uppercase & 1 number (min 6 chars)";
+    isValid = false;
+  }
+
+  // 4️⃣ Confirm password match
+  if (password !== confirmPassword) {
+    confirmError.textContent = "Passwords do not match";
+    isValid = false;
+  }
+
+  return isValid;
+}
+</script>
+
+</body>
+</html>

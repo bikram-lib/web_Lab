@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tech Fest 2026</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background: #333;
+        }
+
+        /* Navigation Menu */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #555;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #111;
+            transform: scale(1.1);
+        }
+
+        /* Content Section */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+        }
+
+        /* Responsive */
+        @media(max-width:700px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Tech Fest 2026</h1>
+        <p>Annual Technology Event</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Events</a>
+        <a href="#">Schedule</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="container">
+
+        <div class="card">
+            <h3>Coding Competition</h3>
+            <p>Test your programming skills and win exciting prizes.</p>
+        </div>
+
+        <div class="card">
+            <h3>Robotics Show</h3>
+            <p>Experience innovative robotics projects by students.</p>
+        </div>
+
+        <div class="card">
+            <h3>AI Workshop</h3>
+            <p>Learn the basics of Artificial Intelligence.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Tech Fest | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Data</title>
+
+<style>
+body{
+  font-family: Arial;
+  text-align:center;
+}
+
+table{
+  border-collapse:collapse;
+  margin:auto;
+  margin-top:20px;
+}
+
+th,td{
+  border:1px solid black;
+  padding:8px 15px;
+}
+
+input{
+  padding:6px;
+  margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Student List</h2>
+
+<input type="text" id="search" placeholder="Search student..." onkeyup="searchStudent()">
+
+<table id="studentTable">
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Course</th>
+<th>Marks</th>
+</tr>
+</thead>
+
+<tbody id="tableBody"></tbody>
+</table>
+
+<script>
+
+let students = [];
+
+fetch("students.json")
+.then(response => response.text())
+.then(data => {
+
+students = JSON.parse(data);
+
+displayTable(students);
+
+});
+
+
+function displayTable(data){
+
+let rows = "";
+
+data.forEach(student => {
+
+rows += `
+<tr>
+<td>${student.id}</td>
+<td>${student.name}</td>
+<td>${student.course}</td>
+<td>${student.marks}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("tableBody").innerHTML = rows;
+
+}
+
+
+function searchStudent(){
+
+let keyword = document.getElementById("search").value.toLowerCase();
+
+let filtered = students.filter(s =>
+s.name.toLowerCase().includes(keyword)
+);
+
+displayTable(filtered);
+
+}
+
+</script>
+
+</body>
+</html>

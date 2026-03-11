@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quiz App</title>
+
+<style>
+body{
+  font-family: Arial;
+  text-align:center;
+  margin-top:50px;
+}
+
+#quizBox{
+  width:400px;
+  margin:auto;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 0 10px gray;
+}
+
+button{
+  padding:8px 15px;
+  margin-top:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="quizBox">
+<h2 id="question"></h2>
+
+<div id="options"></div>
+
+<button onclick="nextQuestion()">Next</button>
+
+<p id="result"></p>
+</div>
+
+<script>
+
+let quiz = [
+{
+question:"What does HTML stand for?",
+options:["Hyper Text Markup Language","High Text Machine Language","Hyperlinks Text Mark"],
+answer:0
+},
+
+{
+question:"Which language is used for styling web pages?",
+options:["HTML","CSS","Python"],
+answer:1
+},
+
+{
+question:"Which is a JavaScript framework?",
+options:["React","Django","Laravel"],
+answer:0
+}
+];
+
+let index = 0;
+let score = 0;
+
+function loadQuestion(){
+
+let q = quiz[index];
+
+document.getElementById("question").innerText = q.question;
+
+let optHTML = "";
+
+for(let i=0;i<q.options.length;i++){
+
+optHTML += `
+<label>
+<input type="radio" name="option" value="${i}">
+${q.options[i]}
+</label><br>
+`;
+
+}
+
+document.getElementById("options").innerHTML = optHTML;
+
+}
+
+function nextQuestion(){
+
+let selected = document.querySelector('input[name="option"]:checked');
+
+if(selected){
+
+if(Number(selected.value) === quiz[index].answer){
+score++;
+}
+
+}
+
+index++;
+
+if(index < quiz.length){
+loadQuestion();
+}
+else{
+document.getElementById("quizBox").innerHTML =
+`<h2>Quiz Finished</h2>
+<p>Your Score: ${score} / ${quiz.length}</p>`;
+}
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
